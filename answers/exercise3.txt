@@ -1,0 +1,28 @@
+nano /usr/src/app/index.js
+root@267b677c2d1a:/#
+  GNU nano 7.2                    /usr/src/app/index.js
+console.log('Hello World')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  [ Read 2 lines ]
+^G Help       ^O Write Out  ^W Where Is   ^K Cut        ^T Execute    ^C Location
+^X Exit       ^R Read File  ^\ Replace    ^U Paste      ^J Justify    ^/ Go To Line
+Save modified buffer?
+ Y Yes
+ N No           ^C Cancel
+File Name to Write: /usr/src/app/index.js
+^G Help              M-D DOS Format       M-A Append           M-B Backup File
+^C Cancel            M-M Mac Format       M-P Prepend          ^T Browse
