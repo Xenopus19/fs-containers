@@ -8,7 +8,9 @@ RUN npm ci
 
 RUN npm run test
 
-RUN npm run build
+ARG VITE_BACKEND_URL
+
+RUN VITE_BACKEND_URL=$VITE_BACKEND_URL npm run build
 
 FROM nginx:1.29-alpine
 
