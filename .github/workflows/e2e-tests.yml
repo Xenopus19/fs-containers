@@ -50,15 +50,16 @@ jobs:
         working-directory: ./todo-tests
         run: npx playwright install --with-deps chromium
 
+      - name: Start todo-app with Docker Compose
+        working-directory: ./todo-app
+        run: docker compose up -d --wait
   
       - name: Run Playwright tests
         working-directory: ./todo-tests
         run: npm run test:e2e
-
       - name: Dump docker logs
         if: failure()
         run: docker compose logs
-        
       - name: Upload Playwright report
         if: failure()
         uses: actions/upload-artifact@v4

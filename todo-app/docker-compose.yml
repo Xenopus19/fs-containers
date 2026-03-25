@@ -16,8 +16,10 @@ services:
       - 8080:80
     container_name: reverse-proxy
     depends_on:
-      - app
-      - backend
+      app:
+        condition: service_started
+      backend:
+        condition: service_healthy
 
   mongo:
     image: mongo
@@ -28,8 +30,8 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: the_database
-    volumes:
-      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    #volumes:
+      #- ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     
 
   redis:
@@ -56,4 +58,9 @@ services:
     depends_on:
       - mongo
       - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/test"] 
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
