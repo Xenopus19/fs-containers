@@ -1,5 +1,5 @@
 services:
-  appFront:
+  app:
     image: todo-front
     #ports:
       #- 8000:80 
@@ -16,7 +16,7 @@ services:
       - 8080:80
     container_name: reverse-proxy
     depends_on:
-      - appFront
+      - app
 
   mongo:
     image: mongo
