@@ -1,5 +1,5 @@
 services:
-  appFront:
+  app:
     image: front-dev
     build:
       context: ./todo-frontend # The context will pick this directory as the "build context"
@@ -16,7 +16,7 @@ services:
       - 8080:80
     container_name: reverse-proxy
     depends_on:
-      - appFront
+      - app
 
   mongo:
     image: mongo
@@ -40,7 +40,7 @@ services:
     volumes: 
       - ./redis_data:/data
 
-  appBack:
+  backend:
     image: back-dev
     build:
       context: ./todo-backend # The context will pick this directory as the "build context"

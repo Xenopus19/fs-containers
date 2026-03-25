@@ -40,7 +40,7 @@ services:
     volumes: 
       - ./redis_data:/data
 
-  appBack:
+  backend:
     image: todo-backend
     ports:
       - 3000:3000 
