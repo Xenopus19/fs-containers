@@ -29,6 +29,7 @@ services:
       MONGO_INITDB_DATABASE: the_database
     volumes:
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    
 
   redis:
     image: redis:7-alpine  
@@ -51,4 +52,7 @@ services:
     environment: 
       - REDIS_URL=redis://redis_container:6379
       - MONGO_URL=mongodb://root:example@mongo_container:27017/the_database?authSource=admin
+    depends_on:
+      - mongo
+      - redis
 
