@@ -24,7 +24,10 @@ jobs:
 
       - name: Build todo-frontend image
         working-directory: ./todo-app/todo-frontend
-        run: docker build -t todo-front -f Dockerfile .
+        run: |
+          docker build \
+            --build-arg VITE_API_BASE_URL=${{ secrets.API_BASE_URL }} \
+            -t my-frontend-app:latest .
 
       - name: Start todo-app with Docker Compose
         working-directory: ./todo-app
