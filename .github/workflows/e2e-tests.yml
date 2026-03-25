@@ -39,6 +39,9 @@ jobs:
       - name: Check running containers
         run: docker ps
 
+      - name: Check all containers
+        run: docker ps -a
+
       - name: Install dependencies
         working-directory: ./todo-tests
         run: npm ci
