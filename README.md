@@ -1,1 +1,1 @@
-My-app repo:
+My-app repo: https://github.com/Xenopus19/my-app.git
